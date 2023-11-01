@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #print {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        #print div {
+            margin: 0px;
+            margin: right 0px;
+            padding: 5px;
+            width: 20%;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-weight: bold;
+            font-size: 15px;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+         
+        }
+
+        #print li:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        #invoice,#grand_total{
+           width: 100%;
+           border: 1px solid rgb(222, 186, 186);
+           font-size: 35px;
+           text-align: center;
+           margin-top: 8px;
+        }
+        button{
+            background-color: #007bff;
+            color:#fff;
+            padding: 12px 15px;
+            margin-top: 30px;
+            margin-left: 670px;
+            border:none;
+            border-radius: 5px;
+            cursor:pointer
+
+         }
+
+         button:hover{
+            background-color:#0056b3 ;
+         }
+    </style>
+</head>
+
+<body>
+    <div id="invoice">Invoice</div>
+    <div id="print"></div>
+    <div id="grand_total"></div>
+    <button onclick="window.print()">Download Invoice</button>
+
+</body>
+
+
+<script>
+    const id = document.getElementById('print')
+    const gtotal=document.getElementById('grand_total')
+    let cur=0
+    window.onload = () => {
+
+        const email = window.localStorage.getItem('email')
+        fetch('/vm/user_data', {
+            method: 'POST',
+            body: JSON.stringify({
+                email
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            }
+        })
+            .then(function (response) {
+                return response.json()
+            })
+            .then(function (data) {
+                // if (data.email == null) {
+                //     window.alert("password is not matched")
+                // window.location.replace("http://localhost:5000/vm/simulator");
+
+                // }
+                // console.log(data.message);
+                // window.localStorage.setItem("email", data.email)
+
+                // if (data.flg != undefined) {
+
+                //     window.location.replace("http://localhost:5000/");
+                // } else {
+
+                // }
+                console.log(data)
+                let s = ""
+                for (let i = 0; i < data.length; i++) {
+                    if (i == 0) {
+                        s += `<div>bed1`;
+                    }
+                    if (i == 1) {
+                        s += `<div>bed2`;
+                    }
+                    if (i == 2) {
+                        s += `<div>living`;
+                    }
+                    if (i == 3) {
+                        s += `<div>kitchen`;
+                    }
+
+                    for (let j = 0; j < data[i].length; j++) {
+                        s += `<hr><li>item:${data[i][j].name}</li>
+                                <li>price:${data[i][j].price}</li>
+                                <li>quantity:${data[i][j].quantity}</li>
+                                 <li> total:${data[i][j].total} </li>
+                                 <hr>`
+
+                                 cur+=data[i][j].total;
+                        // "name":name,
+    //         "price":price,
+    //         "quantity":quantity,
+    //         "total":(quantity*price),
+    //         "email":"sarthak@gmail.com"             
+                    }
+                    s+=`<hr>`
+                    if (i == 0) {
+                        s += `</div>`;
+                    }
+                    if (i == 1) {
+                        s += `</div>`;
+                    }
+                    if (i == 2) {
+                        s += `</div>`;
+                    }
+                    if (i == 3) {
+                        s += `</div>`;
+                    }
+
+                }
+                id.innerHTML = s;
+                gtotal.innerHTML="Total cost is :"+cur;
+
+            }).catch(error => console.error('Error:', error));
+    }
+</script>
+
+</html>
