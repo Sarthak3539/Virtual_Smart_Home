@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pakage</title>
+    <style>
+         .final{
+            width: 55%;
+            
+            background-color: #cad8dc;
+            padding: 8px;
+            box-shadow: #cad8dc;
+            margin-top:100px;
+            margin-left:400px;
+        }
+        
+          .heading{
+            font-size: 30px;
+            margin-left:240px;
+            color:#314b68;
+            padding: 4px;
+            font-style: oblique;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          }
+          .s{
+            font-size: 20px;
+           padding:35px;
+           background-color: rgb(87, 133, 174);
+           color:#d6dfe1;
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+          }
+
+          #standard:hover{
+            background-color:rgb(76, 127, 171);
+            border: 1px solid #2a829b;
+          }
+          #custom:hover{
+            background-color:rgb(76, 127, 171);
+            border: 1px solid #2a829b;
+          }
+          body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 20px;
+        }
+
+        .title {
+            font-style: italic;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .left,
+        .right {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-btn {
+            background-color: #1c7be0;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-btn:hover {
+            background-color: #0056B3;
+        }
+
+      
+
+        a {
+            text-decoration: none;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">Virtual Smart Home</div>
+        <div class="left">
+           <a href="/vm/simulator"> <button class="header-btn">Simulator</button></a>
+            <button class="header-btn">Query</button>
+            <a href="/vm/help">  <button class="header-btn">Help</button></a>
+        </div>
+        <div class="right">
+          <a href="/vm/register">  <button class="header-btn" id="register">Register</button> </a>
+           <a href="vm/login"> <button class="header-btn" id="login">Login</button></a>
+            <a href="/"><button class="header-btn" id="logout">Logout</button></a>
+             <a href="/vm/user"><button class="header-btn" id="user">User</button></a>  
+            
+
+        </div>
+    </div>
+     <div class="final">
+
+         <div class="heading">Select Appropriate Package </div>
+       <a href="/vm/simulator/standard">  <div class="s" id="standard">
+             Standard Package
+            </div></a>
+          <a href="/vm/simulator/custom"> <div class="s" id="custom">
+                Custom Package
+            </div></a>
+        </div>
+
+</body>
+
+<script>
+ 
+ const standard=document.getElementById('standard');
+ const custom=document.getElementById('custom');
+
+
+
+ standard.addEventListener('click',()=>{
+  localStorage.setItem("package","standard");
+ })
+
+
+ custom.addEventListener('click',()=>{
+  localStorage.removeItem("package");
+ })
+ window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('email') == null) {
+                logout.style.display = "none";
+                login.style.display = "block";
+                register.style.display = "block";
+            }
+            else {
+                logout.style.display = "block";
+                login.style.display = "none";
+                register.style.display = "none";
+            }
+        })
+
+        window.onload = (event) => {
+        if (!window.localStorage.getItem('email')) {
+    window.location.replace("http://localhost:5000/vm/login");
+  }
+
+        logout.onclick=()=>{
+      localStorage.clear()
+    }
+
+        
+        
+    };
+
+
+</script>
+</html>

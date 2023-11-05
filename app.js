@@ -104,7 +104,7 @@ app.get("/vm/login",(req,res)=>{
 
 
 app.get("/vm/simulator",(req,res)=>{
-    res.sendFile("D:/NODE_PROJECT/Virtual_Smart_Home/public/custom.html")
+    res.sendFile("D:/NODE_PROJECT/Virtual_Smart_Home/public/package.html")
 })
 
 
@@ -114,7 +114,7 @@ app.get("/vm/simulator/bed1",(req,res)=>{
 
 app.post("/vm/simulator/bed1",async(req,res)=>{
     //  console.log(req.body.arr.len)
-    
+                                                                             
         for(let i=0;i<req.body.arr.length;i++){
             console.log(req.body.arr[i])
             // console.log(arr[i].arr)    
@@ -204,7 +204,7 @@ app.post("/vm/simulator/living",async(req,res)=>{
 })
 
 
-//***********/ user *************//
+//***********/ user *** **********//
 
 
 app.get("/vm/user",(req,res)=>{``
@@ -224,13 +224,24 @@ app.post("/vm/user_data",async(req,res)=>{
 })
 
 
-//***********/ user *************//
+//***********/ help *************//
 
 app.use("/vm/help/",(req,res)=>{
-    res.sendFile("D:/NODE_PROJECT/Virtual_Smart_Home/help.html")
+    res.sendFile("D:/NODE_PROJECT/Virtual_Smart_Home/public/help.html")
+})
+
+//***********/ custom *************//
+
+app.get("/vm/simulator/custom",(req,res)=>{
+    res.sendFile("D:/NODE_PROJECT/Virtual_Smart_Home/public/custom.html")
 })
 
 
+
+//***********/ standard *************//
+app.get("/vm/simulator/standard",(req,res)=>{
+    res.sendFile("D:/NODE_PROJECT/Virtual_Smart_Home/public/custom.html")
+})
 
 
 

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <title>Help Page</title>
+    <style>
+        .header {
+            background-color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 20px;
+            margin-top: 0px;
+        }
+
+        .title {
+            font-style: italic;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 0px;
+        }
+
+        .left,
+        .right {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-btn {
+            background-color: #1c7be0;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-btn:hover {
+            background-color: #0056B3;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #E3E7E8;
+            font-family: system-ui;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .faq-container {
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin: 20px 0;
+        }
+
+        .question {
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .answer {
+            display: none;
+        }
+
+        #accordionFlushExample {
+            margin-top: 50px;
+            width: 70%;
+
+            margin-left: 160px;
+            background-color: #cad8dc;
+            padding: 4px;
+            box-shadow: #cad8dc;
+          
+            border-radius: 4px;
+        }
+
+        .headingg{
+            font-size: 40px;
+            margin-left:480px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="title">Virtual Smart Home</div>
+        <div class="left">
+            <a href="/vm/simulator"> <button class="header-btn">Simulator</button></a>
+            <button class="header-btn">Query</button>
+            <a href="/vm/help" <button class="header-btn">Help</button></a>
+        </div>
+        <div class="right">
+            <a href="/vm/register"> <button class="header-btn" id="register">Register</button> </a>
+            <a href="vm/login"> <button class="header-btn" id="login">Login</button></a>
+            <a href="/"><button class="header-btn" id="logout">Logout</button></a>
+            <a href="/vm/user"><button class="header-btn" id="user">User</button></a>
+        </div>
+    </div>
+
+    <!-- <div class="faq-container">
+        <div class="faq-item">
+            <div class="question">How do I reset my password?</div>
+            <div class="answer">To reset your password, go to the login page and click on the "Forgot Password" link. Follow the instructions to reset your password.</div>
+        </div>
+        <div class="faq-item">
+            <div class="question">What is your return policy?</div>
+            <div class="answer">Our return policy allows you to return items within 30 days of purchase. Please check our Returns page for more details.</div>
+        </div>
+        <div class="faq-item">
+            <div class="question">How can I contact customer support?</div>
+            <div class="answer">You can contact our customer support team by emailing support@example.com or by calling +1-123-456-7890.</div>
+        </div>
+    </div> -->
+
+
+
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="headingg">FAQS</div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    How do I reset my password?
+                </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">To reset your password, go to the login page and click on the "Forgot
+                    Password" link. Follow the instructions to reset your password.</div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    What is your return policy?
+                </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">Our return policy allows you to return items within 30 days of purchase.
+                    Please check our Returns page for more details.</div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    How can I contact customer support?
+                </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
+                    <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting
+                    happening here in terms of content, but just filling up the space to make it look, at least at first
+                    glance, a bit more representative of how this would look in a real-world application.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                    How can I Download invoice ?
+                </button>
+            </h2>
+            <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
+                    <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting
+                    happening here in terms of content, but just filling up the space to make it look, at least at first
+                    glance, a bit more representative of how this would look in a real-world application.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                    How to select package?
+                </button>
+            </h2>
+            <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
+                    <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting
+                    happening here in terms of content, but just filling up the space to make it look, at least at first
+                    glance, a bit more representative of how this would look in a real-world application.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+                   What is Standard package?
+                </button>
+            </h2>
+            <div id="flush-collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
+                    <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting
+                    happening here in terms of content, but just filling up the space to make it look, at least at first
+                    glance, a bit more representative of how this would look in a real-world application.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    const logout = document.getElementById("logout");
+    const login = document.getElementById("login");
+    const register = document.getElementById("register");
+
+    window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('email') == null) {
+                logout.style.display = "none";
+                login.style.display = "block";
+                register.style.display = "block";
+            }
+            else {
+                logout.style.display = "block";
+                login.style.display = "none";
+                register.style.display = "none";
+            }
+        })
+
+    window.onload = (event) => {
+
+        logout.onclick = () => {
+            localStorage.clear()
+        }
+
+    };
+</script>
+
+</html>

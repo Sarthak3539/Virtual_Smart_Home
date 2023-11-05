@@ -99,7 +99,7 @@
     <div class="left">
        <a href="/vm/simulator"> <button class="header-btn">Simulator</button></a>
         <button class="header-btn">Query</button>
-        <button class="header-btn">Help</button>
+        <a href="/vm/help">  <button class="header-btn">Help</button></a>
     </div>
     <div class="right">
       <a href="/vm/register">  <button class="header-btn" id="register">Register</button> </a>
@@ -127,6 +127,20 @@
     const login=document.getElementById("login");
     const register=document.getElementById("register");
 
+    window.addEventListener('DOMContentLoaded', () => {
+
+if (localStorage.getItem('email') == null) {
+    logout.style.display = "none";
+    login.style.display = "block";
+    register.style.display = "block";
+}
+else {
+    logout.style.display = "block";
+    login.style.display = "none";
+    register.style.display = "none";
+}
+})
+
 
   
     window.onload = (event) => {
@@ -139,16 +153,6 @@
     }
 
         
-        if(localStorage.getItem('email') == null){
-            logout.style.display="none";
-            login.style.display="block";
-            register.style.display="block";
-        }
-        else{
-            logout.style.display="block";
-            login.style.display="none";
-            register.style.display="none";
-        }
         
     };
     

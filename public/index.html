@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,11 +24,12 @@
         .title {
             font-style: italic;
             color: #fff;
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
         }
 
-        .left, .right {
+        .left,
+        .right {
             display: flex;
             align-items: center;
         }
@@ -37,7 +39,7 @@
             border: none;
             border-radius: 5px;
             color: #fff;
-            padding: 10px 20px;
+            padding: 14px 24px;
             margin: 0 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
@@ -47,65 +49,72 @@
             background-color: #0056B3;
         }
 
-        img{
-            
-            opacity: 0.6;
+      
+
+        img {
+
+            opacity: 0.8;
+            /* height: 40%; */
+            height: 647px;
+            width: 1536px;
         }
 
-        a{
+        a {
             text-decoration: none;
         }
     </style>
 </head>
+
 <body>
     <div class="header">
         <div class="title">Virtual Smart Home</div>
         <div class="left">
-           <a href="/vm/simulator"> <button class="header-btn">Simulator</button></a>
+            <a href="/vm/simulator"> <button class="header-btn">Simulator</button></a>
             <button class="header-btn">Query</button>
-          <button class="header-btn">Help</button>
+            <a href="/vm/help"> <button class="header-btn">Help</button></a>
         </div>
         <div class="right">
-          <a href="/vm/register">  <button class="header-btn" id="register">Register</button> </a>
-           <a href="vm/login"> <button class="header-btn" id="login">Login</button></a>
+            <a href="/vm/register"> <button class="header-btn" id="register">Register</button> </a>
+            <a href="vm/login"> <button class="header-btn" id="login">Login</button></a>
             <a href="/"><button class="header-btn" id="logout">Logout</button></a>
-             <a href="/vm/user"><button class="header-btn" id="user">User</button></a>  
+            <a href="/vm/user"><button class="header-btn" id="user">User</button></a>
         </div>
     </div>
 
-    <img src="/back.jpg" style="width: 100%; height: auto;">
+    <img src="/back.jpg">
 </body>
 
 <script>
-     const logout=document.getElementById("logout");
-    const login=document.getElementById("login");
-    const register=document.getElementById("register");
+    const logout = document.getElementById("logout");
+    const login = document.getElementById("login");
+    const register = document.getElementById("register");
+
+    window.addEventListener('DOMContentLoaded', () => {
+
+        if (localStorage.getItem('email') == null) {
+            logout.style.display = "none";
+            login.style.display = "block";
+            register.style.display = "block";
+        }
+        else {
+            logout.style.display = "block";
+            login.style.display = "none";
+            register.style.display = "none";
+        }
+    })
 
 
-  
     window.onload = (event) => {
-   
-        logout.onclick=()=>{
-      localStorage.clear()
-    }
 
-        
-        if(localStorage.getItem('email') == null){
-            logout.style.display="none";
-            login.style.display="block";
-            register.style.display="block";
+        logout.onclick = () => {
+            localStorage.clear()
         }
-        else{
-            logout.style.display="block";
-            login.style.display="none";
-            register.style.display="none";
-        }
-        
     };
-    
+
 
 
 
 
 </script>
+
 </html>
